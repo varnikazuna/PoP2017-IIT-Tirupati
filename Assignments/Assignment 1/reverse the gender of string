@@ -1,0 +1,16 @@
+package main
+
+import "fmt"
+import "strings"
+func main() {
+s := "She was a  soul stripper. She took  my heart!"
+fmt.Println(s)
+    
+if strings.Contains(s, "She") {
+y:= strings.Replace(s, "She ", " He ", -1)
+fmt.Println(y)
+}else if strings.Contains(s, "He") {
+y:= strings.Replace(s, "He ", " She ", -1)
+fmt.Println(y)
+}
+}
