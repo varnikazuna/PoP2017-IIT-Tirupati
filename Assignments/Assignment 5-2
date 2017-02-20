@@ -1,0 +1,96 @@
+package main 
+import"fmt"
+var q[4] int
+var max=4
+var f,r,count = 0,-1,0
+
+func insert(ele int){
+   if (qfull()){
+	fmt.Println("overflow")
+	return
+	} else {
+		
+		r=(r+1)%max
+		q[r]=ele
+		count++
+	}
+}
+
+func del(){
+   
+   if(qempty()){
+	fmt.Println("underflow")
+	return
+	}
+		fmt.Println("deleted element is " ,q[f] )
+		f=(f+1)%max
+		count--
+		
+}
+
+func qfull() bool{
+    if(count==max){return true}else {return false }   
+}
+
+func qempty() bool{
+     if(count==0){return true} else{return false}
+}
+
+func disp() {
+	
+    if(qempty()) {fmt.Println(" Empty Queue")
+
+	return
+} else{var i =0
+	if(r>=f){
+	for i<f{
+	fmt.Printf("- ")
+	i++
+	}
+	fmt.Printf("( ")
+        for i=f;i<=r && i<=max-1 ;i++{
+           fmt.Printf("%d ",q[i])}
+        fmt.Printf(" )")
+    }else{ for i<=r{
+	fmt.Printf("%d ",q[i])
+	i++}
+	fmt.Printf(" )")
+	for i<f{
+	fmt.Printf("- ")
+	i++
+	}
+	fmt.Printf("( ")
+	for i<=max-1{
+	fmt.Printf("%d ",q[i])
+	i++
+}	
+
+
+}
+
+}
+}
+func main(){
+
+var choice, ele int
+l1:
+fmt.Println(" Choose one of the following options")
+fmt.Println(" 1.Insert")
+fmt.Println(" 2.Delete")
+fmt.Println(" 3.Exit")
+
+fmt.Scanln(&choice)
+switch choice{
+case 1:fmt.Println(" Enter element that you wish to insert")
+fmt.Scanln(&ele)
+insert(ele)
+disp()
+break
+case 2: del()
+disp()
+break
+default:break
+}
+for choice != 3{
+goto l1}
+}
