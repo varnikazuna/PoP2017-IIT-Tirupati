@@ -1,0 +1,48 @@
+package main
+import "fmt"
+var max , top=100,0
+var stack[100] string
+
+func push(s string){
+  stack[top]=s
+  top=top+1
+ // fmt.Println("1")
+}
+
+func pop(){
+   if(top==0){
+	
+	fmt.Println("imperfectly matched")
+}  else{
+	top--;
+//fmt.Println("0")
+        
+}
+}
+
+func main(){
+var s string
+var i int
+var flag=0
+ fmt.Println("enter the string:")
+ fmt.Scanln(&s)
+ l := len(s)
+ for i=0;i<l;i++ {
+  if (s[i]=='{'){
+   push(string(s[i]))
+   }else if(s[i]=='}') {
+       			if(i==0){
+          			fmt.Println("not a proper start")
+				flag = 1
+				}else {
+				pop()}
+
+			}
+		}
+
+if(top==0 && flag==0 ){
+fmt.Println("perfectly matched")
+}else {
+fmt.Println("imperfectly matched")}
+
+}
